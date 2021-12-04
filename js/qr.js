@@ -4,7 +4,7 @@ var loadingMessage = document.getElementById("loadingMessage");
 // var outputMessage = document.getElementById("outputMessage");
 // var outputData = document.getElementById("outputData");
 
-const qrPage = document.querySelector('.qr-page');
+// const qrPage = document.querySelector('.qr-page');
 const summonPage = document.querySelector('.summon-page');
 const notice = document.querySelector('.qr-header__title');
 

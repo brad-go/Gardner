@@ -1,5 +1,6 @@
 const scanBtn = document.querySelector('#btnScan');
 const mainPage = document.querySelector('#mainPage');
+const qrPage = document.querySelector('#qrPage');
 const homeImgs = document.querySelectorAll('.btn-home img');
 
 const handleHomeImgs = () => {
@@ -9,5 +10,6 @@ const handleHomeImgs = () => {
 
 scanBtn.addEventListener('click', () => {
   mainPage.classList.add('page-hidden');
+  qrPage.classList.remove('page-hidden');
   handleHomeImgs();
 })
