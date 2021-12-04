@@ -4,6 +4,7 @@ for(let button of buttons) {
   button.addEventListener('click', (e) => {
     const img = e.target;
     const newImg = e.target.nextElementSibling;
+    console.dir(e.target);
     
     img.classList.add('hidden');
     newImg.classList.remove('hidden');
@@ -22,3 +23,9 @@ for(let button of buttons) {
 // 원래대로 돌리려고 하면, 이미지가 사라져 버린다. 
 // 동작은 한다. 그러나 바뀐 이미지를 원래 이미지로 되돌릴 때
 // 콘솔 창에 오류가 보인다. 오류의 이유를 알 수 없다. 
+
+const homeBtn = buttons[0];
+
+homeBtn.addEventListener('click', (e) => {
+  mainPage.classList.remove('page-hidden');
+})

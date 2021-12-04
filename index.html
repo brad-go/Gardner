@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가드너</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="js/jsQR.js"></script>
   </head>
   <body>
     <div class="container-doc">
@@ -24,7 +25,7 @@
               <div class="img-wrap">
                 <img
                   class="img-notice"
-                  src="https://cdn0.iconfinder.com/data/icons/app-user-interface-5/48/notification-512.png"
+                  src="https://cdn4.iconfinder.com/data/icons/basic-ui-2-line/32/bell-dot-notification-notify-ring-512.png"
                   alt=""
                 />
               </div>
@@ -45,7 +46,7 @@
       <!-- 개인 페이지로 qr코드를 스캔할 수 있는 버튼과-->
       <!-- 알림 혹은 전화로 받을 수 있는 설정 버튼, 수신기록 버튼, 개인 정보 버튼 -->
       <main class="doc-main">
-        <section id="mainPage" class="main-page">
+        <section id="mainPage" class="main-page page-hidden">
           <div class="license-plate-wrap">
             <div class="license-plate">
               <div class="license-plate__screw"></div>
@@ -90,9 +91,84 @@
         </section>
         <!-- qr코드를 인식하는 스캐너 기능 구현 -->
         <!-- 스캔하기 버튼을 눌렀을 때 밑에서 위로 올라오게 -->
-        <section id="qrPage" class="qr-page"></section>
+        <section id="qrPage" class="qr-page">
+          <div class="qr-header">
+            <h2 class="qr-header__title">QR코드 호출</h2>
+          </div>
+          <div class="qr-main">
+            <div id="qrAware" class="qr-aware">
+              <!-- qr 코드 스캐너 -->
+              <div class="qr-aware__camera">
+                <div id="loadingMessage"></div>
+                <canvas id="canvas" hidden></canvas>
+                <!-- <div id="output" hidden>
+                  <div id="outputMessage">QR코드를 인식시켜주세요.</div>
+                  <div hidden><b>Data:</b> <span id="outputData"></span></div>
+                </div> -->
+              </div>
+              <h1 class="qr-aware__text">QR코드를 인식해주세요.</h1>
+              <p class="qr-aware__sub-text">
+                조회하려는 차량의 QR코드를 화면에 중앙에 위치시키세요.
+              </p>
+            </div>
+          </div>
+          <div class="qr-footer">
+            <div class="qr-footer__code">
+              <div class="img-wrap">
+                <img
+                  class="img-code"
+                  src="https://cdn4.iconfinder.com/data/icons/font-awesome-regular/576/keyboard-512.png"
+                  alt=""
+                />
+              </div>
+              <span>코드번호 입력</span>
+            </div>
+            <div class="qr-footer__flash">
+              <div class="img-wrap">
+                <img
+                  class="img-flash"
+                  src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/flash_light-512.png"
+                  alt=""
+                />
+              </div>
+              <span>손전등</span>
+            </div>
+          </div>
+        </section>
         <!-- qr을 통해 인식한 차량에 대한 정보와 호출할 수 있는 버튼 -->
-        <section id="summonPage" class="summon-page"></section>
+        <section id="summonPage" class="summon-page page-hidden">
+          <div class="info-car">
+            <h2 class="summon-car">KIA 모닝</h2>
+            <div class="license-plate-wrap">
+              <div class="license-plate">
+                <div class="license-plate__screw"></div>
+                <h3 class="license">
+                  <span class="encrypted-number">*** *</span>7907
+                </h3>
+                <div class="license-plate__screw"></div>
+              </div>
+            </div>
+          </div>
+          <div class="summon-request">
+            <button class="btn-summon">
+              <span class="btn-summon__inner">호출</span>
+            </button>
+            <div class="summon-text__onLoaing">
+              <h1>차주에게 알림으로 호출합니다.</h1>
+            </div>
+            <div class="summon-text__onLoaded hidden">
+              <h1>호출 요청이 완료되었습니다.</h1>
+            </div>
+            <button class="btn-resummon hidden">다시 호출하기</button>
+          </div>
+          <div class="summon-footer">
+            <select name="" id="" class="summon-select">
+              <option value="none">호출 옵션</option>
+              <option value="notice">알림으로 호출하기</option>
+              <option value="call">전화로 호출하기</option>
+            </select>
+          </div>
+        </section>
       </main>
       <footer class="doc-footer">
         <!-- page들을 이동할 수 있는 버튼들 -->
@@ -102,12 +178,12 @@
               <div class="img-wrap">
                 <img
                   class="img-footer"
-                  src="https://cdn4.iconfinder.com/data/icons/top-search-7/128/_home_house_building_property_estate-512.png"
+                  src="https://cdn4.iconfinder.com/data/icons/essential-app-2/16/home-house-resident-root-512.png"
                   alt=""
                 />
                 <img
                   class="img-footer hidden"
-                  src="https://cdn4.iconfinder.com/data/icons/essential-app-2/16/home-house-resident-root-512.png"
+                  src="https://cdn4.iconfinder.com/data/icons/top-search-7/128/_home_house_building_property_estate-512.png"
                   alt=""
                 />
               </div>
@@ -174,6 +250,9 @@
     </div>
     <script src="js/app.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/scanBtn.js"></script>
     <script src="js/buttons.js"></script>
+    <script src="js/summon.js"></script>
+    <script src="js/qr.js"></script>
   </body>
 </html>
