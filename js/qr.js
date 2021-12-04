@@ -1,8 +1,5 @@
 var canvasElement = document.getElementById("canvas");
 var loadingMessage = document.getElementById("loadingMessage");
-// var outputContainer = document.getElementById("output");
-// var outputMessage = document.getElementById("outputMessage");
-// var outputData = document.getElementById("outputData");
 
 // const qrPage = document.querySelector('.qr-page');
 const summonPage = document.querySelector('.summon-page');
@@ -10,15 +7,6 @@ const notice = document.querySelector('.qr-header__title');
 
 var canvas = canvasElement.getContext("2d");
 var video = document.createElement("video");
-
-// function drawLine(begin, end, color) {
-//   canvas.beginPath();
-//   canvas.moveTo(begin.x, begin.y);
-//   canvas.lineTo(end.x, end.y);
-//   canvas.lineWidth = 4;
-//   canvas.strokeStyle = color;
-//   canvas.stroke();
-// }
 
 // Use facingMode: environment to attemt to get the front camera on phones
 navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
