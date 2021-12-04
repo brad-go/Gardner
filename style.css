@@ -320,11 +320,11 @@ p[class^="slider-label__"] {
   display: flex;
   align-items: center;
   height: 50px;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 5px;
   padding: 0 15px;
   border-radius: 10px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
 }
 
@@ -381,7 +381,7 @@ div[class^="qr-footer__"] span {
 }
 
 #loadingMessage {
-  padding: 109px;
+  padding: 120px;
   background-color: #eee;
   text-align: center;
   transform: translate(2px, 5px);
