@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가드너</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-doc">
+      <!-- 가드너에 대한 정보와 시작하기 버튼 -->
+      <section id="loginPage" class="login-page"></section>
+      <!-- 로고, 어플명, 검색, 햄버거 버튼을 가진 헤더-->
+      <header class="doc-header">
+        <div class="doc-wrap">
+          <h1 class="doc-title">
+            <a class="doc-title" href="">
+              <span>Gardner</span>
+            </a>
+          </h1>
+          <div class="btn-wrap">
+            <button class="btn-notice" type="button">
+              <div class="img-wrap">
+                <img
+                  class="img-notice"
+                  src="https://cdn0.iconfinder.com/data/icons/app-user-interface-5/48/notification-512.png"
+                  alt=""
+                />
+              </div>
+            </button>
+            <button class="btn-user" type="button">
+              <div class="img-wrap btn-user__user-wrap">
+                <img
+                  class="img-user"
+                  src="https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                  alt=""
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- 차량에 대한 정보가 담긴 번호판, 혹은 qr 코드 등록해 주세요 알림 -->
+      <!-- 개인 페이지로 qr코드를 스캔할 수 있는 버튼과-->
+      <!-- 알림 혹은 전화로 받을 수 있는 설정 버튼, 수신기록 버튼, 개인 정보 버튼 -->
+      <main class="doc-main">
+        <section id="mainPage" class="main-page">
+          <div class="license-plate-wrap">
+            <div class="license-plate">
+              <div class="license-plate__screw"></div>
+              <h2 class="license">QR 코드를 등록해주세요.</h2>
+              <div class="license-plate__screw"></div>
+            </div>
+          </div>
+          <div class="btn-scan-wrap">
+            <button id="btnScan" class="btn-scan">
+              <div class="img-wrap">
+                <img
+                  class="img-scan"
+                  src="https://ko.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/basic_market/generator/dist/generator/assets/images/websiteQRCode_noFrame.png"
+                  alt=""
+                />
+                <img
+                  class="btn-scan__text__img"
+                  src="https://cdn2.iconfinder.com/data/icons/economic-part-3/100/qr-scan-512.png"
+                  alt=""
+                />
+                <h2 class="btn-scan__text">QR코드 스캔하기</h2>
+              </div>
+            </button>
+            <p>QR코드를 스캔하고 차량을 확인하세요.</p>
+          </div>
+          <div class="main-page__footer">
+            <div class="slider-wrap">
+              <label class="receive-switch" for="checkbox">
+                <input id="checkbox" type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+              <p class="slider-label__on">알림으로 받기</p>
+              <p class="slider-label__off hidden">전화로 받기</p>
+            </div>
+            <p class="slider-notice__off">
+              전화를 사용하지 않고, 알림을 통해 연락 할 수 있습니다.
+            </p>
+            <p class="slider-notice__on hidden">
+              전화번호가 호출자에게 노출됩니다.
+            </p>
+          </div>
+        </section>
+        <!-- qr코드를 인식하는 스캐너 기능 구현 -->
+        <!-- 스캔하기 버튼을 눌렀을 때 밑에서 위로 올라오게 -->
+        <section id="qrPage" class="qr-page"></section>
+        <!-- qr을 통해 인식한 차량에 대한 정보와 호출할 수 있는 버튼 -->
+        <section id="summonPage" class="summon-page"></section>
+      </main>
+      <footer class="doc-footer">
+        <!-- page들을 이동할 수 있는 버튼들 -->
+        <section id="categories" class="categories">
+          <div class="categories-wrap">
+            <button class="btn-home">
+              <div class="img-wrap">
+                <img
+                  class="img-footer"
+                  src="https://cdn4.iconfinder.com/data/icons/top-search-7/128/_home_house_building_property_estate-512.png"
+                  alt=""
+                />
+                <img
+                  class="img-footer hidden"
+                  src="https://cdn4.iconfinder.com/data/icons/essential-app-2/16/home-house-resident-root-512.png"
+                  alt=""
+                />
+              </div>
+            </button>
+            <button class="btn-search">
+              <div class="img-wrap">
+                <img
+                  class="img-footer"
+                  src="https://cdn4.iconfinder.com/data/icons/healthcare-54/32/Healthcare_medical_healthcare_file_records-512.png"
+                  alt=""
+                />
+                <img
+                  class="img-footer hidden"
+                  src="https://cdn4.iconfinder.com/data/icons/healthcare-55/32/Healthcare_medical_healthcare_file_records-256.png"
+                  alt=""
+                />
+              </div>
+            </button>
+            <button class="btn-community">
+              <div class="img-wrap">
+                <img
+                  class="img-footer"
+                  src="https://cdn1.iconfinder.com/data/icons/feather-2/24/plus-circle-512.png"
+                  alt=""
+                />
+                <img
+                  class="img-footer hidden"
+                  src="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_add-512.png"
+                  alt=""
+                />
+              </div>
+            </button>
+            <button class="btn-profile">
+              <div class="img-wrap">
+                <img
+                  class="img-footer"
+                  src="https://cdn4.iconfinder.com/data/icons/font-awesome-regular/576/address-card-512.png"
+                  alt=""
+                />
+                <img
+                  class="img-footer hidden"
+                  src="https://cdn0.iconfinder.com/data/icons/font-awesome-solid-vol-1/576/address-card-1024.png"
+                  alt=""
+                />
+              </div>
+            </button>
+            <button class="btn-personal">
+              <div class="img-wrap">
+                <img
+                  class="img-footer"
+                  src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male4-512.png"
+                  alt=""
+                />
+                <img
+                  class="img-footer hidden"
+                  src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png"
+                  alt=""
+                />
+              </div>
+            </button>
+          </div>
+        </section>
+      </footer>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/buttons.js"></script>
+  </body>
+</html>
