@@ -1,9 +1,9 @@
 var canvasElement = document.getElementById("canvas");
 var loadingMessage = document.getElementById("loadingMessage");
 
-// const qrPage = document.querySelector('.qr-page');
-const summonPage = document.querySelector('.summon-page');
-const notice = document.querySelector('.qr-header__title');
+const qrOn = document.querySelector('.qr-page');
+const summonOn = document.querySelector('.summon-page');
+const qrNotice = document.querySelector('.qr-header__title');
 
 var canvas = canvasElement.getContext("2d");
 var video = document.createElement("video");
@@ -31,15 +31,15 @@ function tick() {
       inversionAttempts: "dontInvert",
     });
     if (code) {
-      notice.innerText = '차량이 조회되었습니다.';
+      qrNotice.innerText = '차량이 조회되었습니다.';
       setTimeout(() => {
-        qrPage.classList.add('page-hidden');
-        summonPage.classList.remove('page-hidden');
+        qrOn.classList.add('page-hidden');
+        summonOn.classList.remove('page-hidden');
       }, 2000);
       
     } else {
       setTimeout(() => {
-        notice.innerText = '차량 조회에 실패하였습니다. 다시 시도해주세요.'
+        qrNotice.innerText = '차량 조회에 실패하였습니다. 다시 시도해주세요.'
       }, 5000);
     }
   }

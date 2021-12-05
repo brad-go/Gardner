@@ -11,7 +11,7 @@
   <body>
     <div class="container-doc">
       <!-- 가드너에 대한 정보와 시작하기 버튼 -->
-      <section id="loginPage" class="login-page"></section>
+      <section id="loginPage" class="login-page page"></section>
       <!-- 로고, 어플명, 검색, 햄버거 버튼을 가진 헤더-->
       <header class="doc-header">
         <div class="doc-wrap">
@@ -42,11 +42,10 @@
           </div>
         </div>
       </header>
-      <!-- 차량에 대한 정보가 담긴 번호판, 혹은 qr 코드 등록해 주세요 알림 -->
-      <!-- 개인 페이지로 qr코드를 스캔할 수 있는 버튼과-->
-      <!-- 알림 혹은 전화로 받을 수 있는 설정 버튼, 수신기록 버튼, 개인 정보 버튼 -->
       <main class="doc-main">
-        <section id="mainPage" class="main-page page-hidden">
+        <!-- 기본 홈 페이지 -->
+        <section id="mainPage" class="main-page page">
+          <!-- 차량에 대한 정보가 담긴 번호판, 혹은 qr 코드 등록해 주세요 알림 -->
           <div class="license-plate-wrap">
             <div class="license-plate">
               <div class="license-plate__screw"></div>
@@ -54,6 +53,7 @@
               <div class="license-plate__screw"></div>
             </div>
           </div>
+          <!-- 개인 페이지로 qr코드를 스캔할 수 있는 버튼-->
           <div class="btn-scan-wrap">
             <button id="btnScan" class="btn-scan">
               <div class="img-wrap">
@@ -72,6 +72,7 @@
             </button>
             <p>QR코드를 스캔하고 차량을 확인하세요.</p>
           </div>
+          <!-- 알림 혹은 전화로 받을 수 있는 설정 버튼, 수신기록 버튼, 개인 정보 버튼 -->
           <div class="main-page__footer">
             <div class="slider-wrap">
               <label class="receive-switch" for="checkbox">
@@ -89,9 +90,11 @@
             </p>
           </div>
         </section>
+        <!-- 수신 기록 확인 페이지 -->
+        <section id="recordPage" class="record-page page page-hidden"></section>
         <!-- qr코드를 인식하는 스캐너 기능 구현 -->
         <!-- 스캔하기 버튼을 눌렀을 때 밑에서 위로 올라오게 -->
-        <section id="qrPage" class="qr-page">
+        <section id="qrPage" class="qr-page page page-hidden">
           <div class="qr-header">
             <h2 class="qr-header__title">QR코드 호출</h2>
           </div>
@@ -113,8 +116,8 @@
             </div>
           </div>
           <div class="qr-footer">
-            <div class="qr-footer__code">
-              <div class="img-wrap">
+            <div class="qr-footer__btn">
+              <div class="img-wrap-2">
                 <img
                   class="img-code"
                   src="https://cdn4.iconfinder.com/data/icons/font-awesome-regular/576/keyboard-512.png"
@@ -123,8 +126,8 @@
               </div>
               <span>코드번호 입력</span>
             </div>
-            <div class="qr-footer__flash">
-              <div class="img-wrap">
+            <div class="qr-footer__btn">
+              <div class="img-wrap-2">
                 <img
                   class="img-flash"
                   src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/flash_light-512.png"
@@ -136,7 +139,7 @@
           </div>
         </section>
         <!-- qr을 통해 인식한 차량에 대한 정보와 호출할 수 있는 버튼 -->
-        <section id="summonPage" class="summon-page page-hidden">
+        <section id="summonPage" class="summon-page page page-hidden">
           <div class="info-car">
             <h2 class="summon-car">KIA 모닝</h2>
             <div class="license-plate-wrap">
@@ -150,8 +153,8 @@
             </div>
           </div>
           <div class="summon-request">
-            <button class="btn-summon">
-              <span class="btn-summon__inner">호출</span>
+            <button class="summon-loader">
+              <span class="summon-loader__inner">호출</span>
             </button>
             <div class="summon-text__onLoaing">
               <h1>차주에게 알림으로 호출합니다.</h1>
@@ -167,6 +170,22 @@
               <option value="notice">알림으로 호출하기</option>
               <option value="call">전화로 호출하기</option>
             </select>
+          </div>
+        </section>
+        <!-- user의 정보를 관리하는 페이지 -->
+        <section id="userPage" class="user-page page page-hidden">
+          <div class="call-notice">
+            <div class="call-notice__header">
+              <h2>차량 호출</h2>
+            </div>
+            <div class="call-notice__main">
+              <h1>162나 7907</h1>
+              <p>차량 호출입니다.</p>
+            </div>
+            <div class="call-notice__footer">
+              <button id="callOff" class="btn-call-notice">알람 끄기</button>
+              <button id="callConfirm" class="btn-call-notice">확인</button>
+            </div>
           </div>
         </section>
       </main>
@@ -188,7 +207,7 @@
                 />
               </div>
             </button>
-            <button class="btn-search">
+            <button class="btn-records">
               <div class="img-wrap">
                 <img
                   class="img-footer"
@@ -202,7 +221,7 @@
                 />
               </div>
             </button>
-            <button class="btn-community">
+            <button class="btn-qr">
               <div class="img-wrap">
                 <img
                   class="img-footer"
@@ -216,7 +235,7 @@
                 />
               </div>
             </button>
-            <button class="btn-profile">
+            <button class="btn-summon">
               <div class="img-wrap">
                 <img
                   class="img-footer"
@@ -250,7 +269,6 @@
     </div>
     <script src="js/app.js"></script>
     <script src="js/slider.js"></script>
-    <script src="js/scanBtn.js"></script>
     <script src="js/buttons.js"></script>
     <script src="js/summon.js"></script>
     <script src="js/qr.js"></script>
