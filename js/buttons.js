@@ -96,6 +96,13 @@ const handlePageBtn = (button) => {
 const observer = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
     if (summonPage.classList.length === 2) {
+      summonLoader.classList.add(SUMMON_LOADER);
+      summonLoader.classList.remove(SUMMON_LOADING);
+      summonLoader.classList.remove(SUMMON_LOADED);
+      summonLoaderText.classList.remove(HIDDEN)
+      loadingText.classList.remove(HIDDEN_SUMMON);
+      loadedText.classList.add(HIDDEN_SUMMON);
+      resummonBtn.classList.add(HIDDEN_SUMMON);
       handleBtnImages(buttons[3]);
       handleBtnImages(buttons[2]);
       // observer 종료
