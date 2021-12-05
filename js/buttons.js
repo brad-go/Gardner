@@ -12,6 +12,10 @@ const homeImgs = document.querySelectorAll('.btn-home img');
 // others
 const noticeBox = document.querySelector('.call-notice');
 
+// text
+const HIDDEN = 'hidden';
+const BTN_HOME = 'btn-home';
+
 // page들을 배열 pages에 집어넣기
 const pages = [];
 
@@ -30,12 +34,12 @@ const handleFooterBtns = (button) => {
   for (let footerBtn of footerBtns) {
   if (footerBtn.className !== button.className) {
       // 홈일 경우만 다르게 실행해준다. 
-      if (footerBtn.className === 'btn-home') {
-        footerBtn.childNodes[1].childNodes[3].classList.remove('hidden');
-        footerBtn.childNodes[1].childNodes[1].classList.add('hidden');
+      if (footerBtn.className === BTN_HOME) {
+        footerBtn.childNodes[1].childNodes[3].classList.remove(HIDDEN);
+        footerBtn.childNodes[1].childNodes[1].classList.add(HIDDEN);
       } else {
-        footerBtn.childNodes[1].childNodes[1].classList.remove('hidden');
-        footerBtn.childNodes[1].childNodes[3].classList.add('hidden');
+        footerBtn.childNodes[1].childNodes[1].classList.remove(HIDDEN);
+        footerBtn.childNodes[1].childNodes[3].classList.add(HIDDEN);
       }
     }
   }
@@ -46,8 +50,8 @@ const handleBtnImages = (button) => {
   const currentImg = button.childNodes[1].childNodes[1];
   const nextImg = button.childNodes[1].childNodes[3];
 
-  currentImg.classList.toggle('hidden');
-  nextImg.classList.toggle('hidden');
+  currentImg.classList.toggle(HIDDEN);
+  nextImg.classList.toggle(HIDDEN);
 }
 
 // button을 클릭할 때마다 page가 바뀌게
@@ -58,33 +62,59 @@ const handlePageBtn = (button) => {
   // 각 버튼에 해당하는 페이지를 보여주는 조건문
   // classList에 page-hidden이 포함되지 않은 경우, 기존 페이지를 유지 
   if (pageLen > 1) {
-    if (btnName === 'btn-home') {
+    if (btnName === BTN_HOME) {
       pages.forEach((page) => {
-        page.classList.add('page-hidden');
+        page.classList.add(HIDDEN);
       })
-      mainPage.classList.remove('page-hidden');
+      mainPage.classList.remove(HIDDEN);
     } else if (btnName === 'btn-records') {
       pages.forEach((page) => {
-        page.classList.add('page-hidden');
+        page.classList.add(HIDDEN);
       })
-      recordPage.classList.remove('page-hidden');
+      recordPage.classList.remove(HIDDEN);
     } else if (btnName === 'btn-qr') {
       pages.forEach((page) => {
-        page.classList.add('page-hidden');
+        page.classList.add(HIDDEN);
       })
-      qrPage.classList.remove('page-hidden');
+      qrPage.classList.remove(HIDDEN);
     } else if (btnName === 'btn-summon') {
       pages.forEach((page) => {
-        page.classList.add('page-hidden');
+        page.classList.add(HIDDEN);
       })
-      summonPage.classList.remove('page-hidden');
+      summonPage.classList.remove(HIDDEN);
     } else {
       pages.forEach((page) => {
-        page.classList.add('page-hidden');
+        page.classList.add(HIDDEN);
       })
-      userPage.classList.remove('page-hidden');
-      noticeBox.classList.remove('page-hidden');
+      userPage.classList.remove(HIDDEN);
+      noticeBox.classList.remove(HIDDEN);
     }
+  }
+}
+
+// observer를 구현하고 감지되면 행할 함수
+const observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    if (summonPage.classList.length === 2) {
+      handleBtnImages(buttons[3]);
+      handleBtnImages(buttons[2]);
+      // observer 종료
+      observer.disconnect();
+    }
+  });
+});
+
+// observer가 감지할 옵션
+const config = { attributes: true };
+
+// observer가 감지할 타겟과 옵션
+observer.observe(summonPage, config);
+
+// observer가 인식되면 종료하기 때문에 다른 버튼을 클릭해서
+// 페이지 이동이 일어나면 다시 observer를 시작하게 했다. 
+const handleObserver = (button) => {
+  if (button.className !== 'btn-summon') {
+    observer.observe(summonPage, config);
   }
 }
 
@@ -94,7 +124,7 @@ for(let button of buttons) {
     // button의 첫 번째 img가 가진 클래스의 길이를 구한다. 
     const imgLen = button.childNodes[1].childNodes[1].classList.length;
     // 홈 버튼의 경우 처음부터 클릭된 버튼이므로 반대로 해준다. 
-    if (button.className === 'btn-home') {
+    if (button.className === BTN_HOME) {
       if (imgLen === 2) {
         handleBtnImages(button);
         handleFooterBtns(button);
@@ -107,6 +137,7 @@ for(let button of buttons) {
         handlePageBtn(button);
       }
     }
+    handleObserver(button);
   })
 }
 
@@ -115,10 +146,11 @@ for(let button of buttons) {
 // scan button을 클릭하면 main-page 사라지고 qr-page 보이기
 // home 버튼의 이미지 바꿔주기 
 scanBtn.addEventListener('click', () => {
-  mainPage.classList.add('page-hidden');
-  qrPage.classList.remove('page-hidden');
+  mainPage.classList.add(HIDDEN);
+  qrPage.classList.remove(HIDDEN);
   // 인자로 홈버튼 넘기기
   handleBtnImages(buttons[0]);
+  handleBtnImages(buttons[2]);
 })
 
 ///////////////////// notice Btn /////////////////////
@@ -126,8 +158,10 @@ scanBtn.addEventListener('click', () => {
 const confirmBtn = noticeBtn[1];
 
 confirmBtn.addEventListener('click', () => {
-  noticeBox.classList.add('page-hidden');
+  noticeBox.classList.add(HIDDEN);
 })
+
+
 
 // 12 / 4 토
 // button들을 한 번에 가져와서 
@@ -143,3 +177,7 @@ confirmBtn.addEventListener('click', () => {
 // button 하나를 누르면 나머지는 선택 해제 되게하기
 // home-button에만 반대로 적용해주기
 // 각 버튼을 눌렀을 때 해당하는 페이지 보여주기 -> 로직 좀 더 쉽게 가능?
+// observer를 통해서 page가 이동했을때(클래스가 변경되었을 때) 
+// btn-qr과 btn-summon의 img focus를 변경해준다. 
+
+

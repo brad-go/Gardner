@@ -21,7 +21,6 @@ function tick() {
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
     loadingMessage.hidden = true;
     canvasElement.hidden = false;
-    // outputContainer.hidden = false;
 
     canvasElement.height = video.videoHeight;
     canvasElement.width = video.videoWidth;
@@ -33,10 +32,9 @@ function tick() {
     if (code) {
       qrNotice.innerText = '차량이 조회되었습니다.';
       setTimeout(() => {
-        qrOn.classList.add('page-hidden');
-        summonOn.classList.remove('page-hidden');
+        qrOn.classList.add('hidden');
+        summonOn.classList.remove('hidden');
       }, 2000);
-      
     } else {
       setTimeout(() => {
         qrNotice.innerText = '차량 조회에 실패하였습니다. 다시 시도해주세요.'
