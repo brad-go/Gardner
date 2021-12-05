@@ -102,7 +102,7 @@ img[class^="img-"] {
 .license-plate-wrap {
   width: 280px;
   margin-top: 50px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border: 2px solid #ccd1d1;
   border-radius: 5px;
   text-align: center;
@@ -203,7 +203,7 @@ img[class^="img-"] {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 65px;
 }
 
 .slider-wrap {
@@ -378,7 +378,7 @@ p[class^="slider-label__"] {
   justify-content: space-between;
   width: 200px;
   height: 60px;
-  margin-top: 60px;
+  margin-top: 70px;
   text-align: center;
 }
 
@@ -474,7 +474,7 @@ p[class^="slider-label__"] {
 
 .summon-request {
   position: relative;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 60px;
 }
 
@@ -583,7 +583,7 @@ div[class^="summon-text__"] {
 
 .summon-footer {
   position: absolute;
-  bottom: 18%;
+  bottom: 20%;
 }
 
 /* //////////////////////////// user page //////////////////////////// */

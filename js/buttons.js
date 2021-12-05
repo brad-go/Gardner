@@ -83,6 +83,7 @@ const handlePageBtn = (button) => {
         page.classList.add('page-hidden');
       })
       userPage.classList.remove('page-hidden');
+      noticeBox.classList.remove('page-hidden');
     }
   }
 }
