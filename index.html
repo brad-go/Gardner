@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가드너</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- cozmo님의 https://github.com/cozmo/jsQR에서 가져온 자바스크립트 -->
     <script type="text/javascript" src="js/jsQR.js"></script>
   </head>
   <body>
@@ -87,7 +88,6 @@
         <!-- 수신 기록 확인 페이지 -->
         <section id="recordPage" class="record-page page hidden"></section>
         <!-- qr코드를 인식하는 스캐너 기능 구현 -->
-        <!-- 스캔하기 버튼을 눌렀을 때 밑에서 위로 올라오게 -->
         <section id="qrPage" class="qr-page page hidden">
           <div class="qr-header">
             <h2 class="qr-header__title">QR코드 호출</h2>
@@ -172,6 +172,7 @@
           </div>
         </section>
       </main>
+      <!-- 하단 내비게이션 바 -->
       <footer class="doc-footer">
         <!-- page들을 이동할 수 있는 버튼들 -->
         <section id="categories" class="categories">

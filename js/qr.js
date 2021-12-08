@@ -29,12 +29,14 @@ function tick() {
     var code = jsQR(imageData.data, imageData.width, imageData.height, {
       inversionAttempts: "dontInvert",
     });
+    // qr 인식 성공 시 동작할 코드
     if (code) {
       qrNotice.innerText = '차량이 조회되었습니다.';
       setTimeout(() => {
         qrOn.classList.add('hidden');
         summonOn.classList.remove('hidden');
       }, 2000);
+    // qr 인식 실패 시 동작할 코드 
     } else {
       setTimeout(() => {
         qrNotice.innerText = '차량 조회에 실패하였습니다. 다시 시도해주세요.'
